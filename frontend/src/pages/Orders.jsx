@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -21,7 +22,7 @@ const Orders = () => {
             }
 
             const config = { headers: { Authorization: `Bearer ${token}` } };
-            const res = await axios.get('http://localhost:5000/api/orders/myorders', config);
+            const res = await axios.get(`${API_BASE_URL}/api/orders/myorders`, config);
 
             setOrders(res.data);
         } catch (err) {
@@ -43,7 +44,7 @@ const Orders = () => {
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
 
-            await axios.put(`http://localhost:5000/api/orders/${orderId}/cancel`, {}, config);
+            await axios.put(`${API_BASE_URL}/api/orders/${orderId}/cancel`, {}, config);
 
             toast.success("Order cancelled successfully");
             fetchMyOrders(); // Refresh list
@@ -132,7 +133,7 @@ const Orders = () => {
                                             <div key={index} className="py-4 first:pt-0 last:pb-0 flex items-center justify-between gap-6">
                                                 <div className="flex items-center gap-4 flex-1">
                                                     <div className="w-16 h-16 bg-gray-50 rounded-xl overflow-hidden border border-gray-100 p-1">
-                                                        <img src={`http://localhost:5000${item.image}`} alt={item.name} className="w-full h-full object-contain" />
+                                                        <img src={`${API_BASE_URL}${item.image}`} alt={item.name} className="w-full h-full object-contain" />
                                                     </div>
                                                     <div>
                                                         <Link to={`/products/${item.product}`} className="font-bold text-gray-800 hover:text-pink-600 transition-colors line-clamp-1">

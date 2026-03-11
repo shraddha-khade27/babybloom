@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
@@ -46,7 +47,7 @@ const Shop = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/products");
+                const res = await axios.get(`${API_BASE_URL}/api/products`);
                 setProducts(res.data);
                 setLoading(false);
             } catch (error) {
@@ -357,7 +358,7 @@ const Shop = () => {
 
                                                 <Link to={`/products/${product._id || product.id}`} className="relative h-48 block overflow-hidden bg-blush-50">
                                                     <img
-                                                        src={product.image && product.image.startsWith('http') ? product.image : `http://localhost:5000${product.image}`}
+                                                        src={product.image && product.image.startsWith('http') ? product.image : `${API_BASE_URL}${product.image}`}
                                                         alt={product.name}
                                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                                                     />

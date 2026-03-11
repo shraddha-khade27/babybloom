@@ -1,10 +1,11 @@
 import './ProductCard.css';
+import API_BASE_URL from '../config';
 import { useStore } from '../context/StoreContext';
 import { toast } from 'react-toastify';
 
 function ProductCard({ product }) {
     const { addToCart } = useStore();
-    const imageUrl = product.image ? `http://localhost:5000${product.image}` : `https://via.placeholder.com/400x400/FDE8ED/E28AA4?text=${encodeURIComponent(product.name || 'Baby Product')}`;
+    const imageUrl = product.image ? `${API_BASE_URL}${product.image}` : `https://via.placeholder.com/400x400/FDE8ED/E28AA4?text=${encodeURIComponent(product.name || 'Baby Product')}`;
 
     const handleAddToCart = () => {
         addToCart(product);

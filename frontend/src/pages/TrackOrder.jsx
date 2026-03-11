@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -20,7 +21,7 @@ const TrackOrder = () => {
                 if (!token) throw new Error("Unauthorized");
 
                 const config = { headers: { Authorization: `Bearer ${token}` } };
-                const res = await axios.get('http://localhost:5000/api/orders/myorders', config);
+                const res = await axios.get(`${API_BASE_URL}/api/orders/myorders`, config);
                 const currentOrder = res.data.find(o => o._id === id);
 
                 if (!currentOrder) throw new Error("Order not found");

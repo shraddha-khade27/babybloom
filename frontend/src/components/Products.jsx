@@ -1,4 +1,5 @@
 import axios from "axios"
+import API_BASE_URL from '../config';
 import { useEffect, useState } from "react"
 
 function Products() {
@@ -7,7 +8,7 @@ function Products() {
 
   useEffect(() => {
 
-    axios.get("http://localhost:5000/api/products")
+    axios.get(`${API_BASE_URL}/api/products`)
       .then(res => setProducts(res.data))
       .catch(err => console.log(err))
 
@@ -22,7 +23,7 @@ function Products() {
         <div key={index} className="bg-white p-4 shadow rounded">
 
           <img
-            src={item.image?.startsWith('/uploads') ? `http://localhost:5000${item.image}` : item.image}
+            src={item.image?.startsWith('/uploads') ? `${API_BASE_URL}${item.image}` : item.image}
             alt={item.name}
             className="w-full h-40 object-cover"
           />

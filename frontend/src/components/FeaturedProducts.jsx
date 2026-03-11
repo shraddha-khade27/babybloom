@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ function FeaturedProducts() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/products")
+        axios.get(`${API_BASE_URL}/api/products`)
             .then(res => {
                 if (res.data && res.data.length > 0) {
                     setProducts(res.data.slice(0, 4));
@@ -38,7 +39,7 @@ function FeaturedProducts() {
                         <div key={product._id || product.id} className="group bg-white rounded-[2rem] shadow-sm overflow-hidden border border-blush-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col p-2">
                             <Link to={`/products/${product._id || product.id}`} className="relative h-56 block overflow-hidden bg-blush-50 rounded-[1.5rem] flex items-center justify-center">
                                 <img
-                                    src={`http://localhost:5000${product.image}`}
+                                    src={`${API_BASE_URL}${product.image}`}
                                     alt={product.name}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                                 />

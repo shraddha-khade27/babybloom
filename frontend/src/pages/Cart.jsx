@@ -1,4 +1,5 @@
 import React from 'react';
+import API_BASE_URL from '../config';
 import { Link } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
 
@@ -24,7 +25,7 @@ const Cart = () => {
 
                                             <Link to={`/products/${item._id || item.id}`} className="shrink-0 w-32 h-32 bg-blush-50 rounded-xl overflow-hidden block">
                                                 <img
-                                                    src={`http://localhost:5000${item.image}`}
+                                                    src={`${API_BASE_URL}${item.image}`}
                                                     alt={item.name}
                                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                                 />

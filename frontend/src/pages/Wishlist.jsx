@@ -1,4 +1,5 @@
 import React from 'react';
+import API_BASE_URL from '../config';
 import { Link } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
 
@@ -27,7 +28,7 @@ const Wishlist = () => {
 
                                 <Link to={`/products/${product._id || product.id}`} className="relative h-48 block overflow-hidden bg-blush-50">
                                     <img
-                                        src={`http://localhost:5000${product.image}`}
+                                        src={`${API_BASE_URL}${product.image}`}
                                         alt={product.name}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
                                     />

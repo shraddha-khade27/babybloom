@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useStore } from '../context/StoreContext';
@@ -16,7 +17,7 @@ const ProductDetails = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/products/${id}`);
+                const res = await axios.get(`${API_BASE_URL}/api/products/${id}`);
                 setProduct(res.data);
             } catch (error) {
                 console.error("Error fetching product", error);
@@ -67,7 +68,7 @@ const ProductDetails = () => {
                     {/* Left - Image */}
                     <div className="md:w-1/2 p-8 lg:p-12 bg-blush-50/50 flex items-center justify-center border-b md:border-b-0 md:border-r border-blush-50">
                         <img
-                            src={product.image && product.image.startsWith('http') ? product.image : `http://localhost:5000${product.image}`}
+                            src={product.image && product.image.startsWith('http') ? product.image : `${API_BASE_URL}${product.image}`}
                             alt={product.name}
                             className="w-full max-w-md h-auto object-contain drop-shadow-sm rounded-xl"
                         />

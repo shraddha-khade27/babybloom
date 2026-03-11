@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ function BestSellers() {
         setLoading(true);
         try {
             // Fetching all products, limiting to 8 for the home page display
-            const res = await axios.get("http://localhost:5000/api/products");
+            const res = await axios.get(`${API_BASE_URL}/api/products`);
             // Assuming the newest or some specific criteria makes them "best sellers" 
             // For now, we take the first 8 to simulate best sellers
             setProducts(res.data.slice(0, 8));
@@ -54,7 +55,7 @@ function BestSellers() {
                             <div className="relative aspect-square overflow-hidden bg-slate-50">
                                 <Link to={`/products/${product._id}`}>
                                     <img
-                                        src={product.image.startsWith('http') ? product.image : `http://localhost:5000${product.image}`}
+                                        src={product.image.startsWith('http') ? product.image : `${API_BASE_URL}${product.image}`}
                                         alt={product.name}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />

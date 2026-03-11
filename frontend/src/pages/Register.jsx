@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API_BASE_URL from '../config';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -20,7 +21,7 @@ const Register = () => {
     }
     try {
       const config = { headers: { 'Content-Type': 'application/json' } };
-      const { data } = await axios.post('http://localhost:5000/api/users', { name, email, password }, config);
+      const { data } = await axios.post(`${API_BASE_URL}/api/users`, { name, email, password }, config);
 
       // Update context
       setUserInfo(data);

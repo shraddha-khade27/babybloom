@@ -1,11 +1,12 @@
 import axios from "axios"
+import API_BASE_URL from '../config';
 import { useEffect, useState } from "react"
 function Products() {
 
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/products")
+    axios.get(`${API_BASE_URL}/api/products`)
       .then(res => setProducts(res.data))
       .catch(err => console.error("Error fetching products", err))
   }, [])
@@ -19,7 +20,7 @@ function Products() {
         <div className="border rounded-lg p-4 shadow hover:shadow-lg">
 
           <img
-            src={product.image?.startsWith('/uploads') ? `http://localhost:5000${product.image}` : (product.image || 'https://via.placeholder.com/400x400/FDE8ED/E28AA4?text=Baby+Product')}
+            src={product.image?.startsWith('/uploads') ? `${API_BASE_URL}${product.image}` : (product.image || 'https://via.placeholder.com/400x400/FDE8ED/E28AA4?text=Baby+Product')}
             className="w-full h-48 object-cover rounded"
             alt={product.name}
           />

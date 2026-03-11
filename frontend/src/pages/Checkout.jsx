@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../config';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useStore } from '../context/StoreContext';
@@ -113,7 +114,7 @@ const Checkout = () => {
             };
 
             if (formData.paymentMethod === 'COD') {
-                const { data } = await axios.post('http://localhost:5000/api/payment/cod', { orderInfo }, config);
+                const { data } = await axios.post(`${API_BASE_URL}/api/payment/cod`, { orderInfo }, config);
                 if (data.order) {
                     toast.success("Order Placed Successfully via COD 🎉");
                     clearCart();
@@ -129,12 +130,12 @@ const Checkout = () => {
                 }
 
                 // Create Order on Backend
-                const { data: razorpayOrder } = await axios.post('http://localhost:5000/api/payment/create-order', {
+                const { data: razorpayOrder } = await axios.post(`${API_BASE_URL}/api/payment/create-order`, {
                     amount: total,
                     receipt: `receipt_${Date.now()}`
                 }, config);
 
-                const { data: keyRes } = await axios.get('http://localhost:5000/api/payment/key');
+                const { data: keyRes } = await axios.get(`${API_BASE_URL}/api/payment/key`);
 
                 const options = {
                     key: keyRes.key,
@@ -152,7 +153,7 @@ const Checkout = () => {
                                 orderInfo
                             };
 
-                            const { data: verifyRes } = await axios.post('http://localhost:5000/api/payment/verify', verifyData, config);
+                            const { data: verifyRes } = await axios.post(`${API_BASE_URL}/api/payment/verify`, verifyData, config);
 
                             if (verifyRes.order) {
                                 toast.success("Payment Successful! Order Confirmed 🎉");
@@ -337,7 +338,7 @@ const Checkout = () => {
                             {cartItems.map((item) => (
                                 <div key={item._id} className="flex gap-4">
                                     <div className="w-16 h-16 bg-gray-50 rounded-lg overflow-hidden shrink-0 border border-gray-100">
-                                        <img src={`http://localhost:5000${item.image}`} alt={item.name} className="w-full h-full object-contain" />
+                                        <img src={`${API_BASE_URL}${item.image}`} alt={item.name} className="w-full h-full object-contain" />
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-sm font-semibold text-gray-800 line-clamp-1">{item.name}</h3>

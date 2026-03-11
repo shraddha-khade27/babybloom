@@ -92,7 +92,7 @@ function Products() {
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-4">
                           <img
-                            src={product.image?.startsWith('/uploads') ? `http://localhost:5000${product.image}` : (product.image || 'https://via.placeholder.com/40')}
+                            src={product.image?.startsWith('/uploads') ? `https://babybloom-backend.onrender.com${product.image}` : (product.image || 'https://via.placeholder.com/400x400/FDE8ED/E28AA4?text=Baby+Product')}
                             alt={product.name}
                             className="w-12 h-12 rounded-lg object-cover border border-slate-200"
                           />

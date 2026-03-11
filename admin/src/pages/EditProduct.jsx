@@ -242,7 +242,7 @@ function EditProduct() {
                                 {product.image && !selectedImage && (
                                     <div className="mb-4">
                                         <p className="text-xs text-gray-500 mb-2">Current Image:</p>
-                                        <img src={`http://localhost:5000${product.image}`} alt="Current" className="w-32 h-32 object-cover rounded-lg mx-auto border border-gray-200" />
+                                        <img src={`https://babybloom-backend.onrender.com${product.image}`} alt="Current" className="w-32 h-32 object-cover rounded-lg mx-auto border border-gray-200" />
                                     </div>
                                 )}
                                 <div className="border-2 border-dashed border-teal-200 rounded-lg p-8 flex flex-col items-center justify-center bg-teal-50/20 text-center cursor-pointer hover:bg-teal-50/50 transition-colors" onClick={() => document.getElementById('imageUpload').click()}>

@@ -49,6 +49,7 @@ function Navbar() {
           <li><Link to="/shop?category=Toys" className="hover:text-blush-500 transition-colors">Toys</Link></li>
           <li><Link to="/shop?category=Nursery" className="hover:text-blush-500 transition-colors">Nursery</Link></li>
           <li><Link to="/shop?category=Bath+%26+Care" className="hover:text-blush-500 transition-colors">Bath & Care</Link></li>
+          <li><Link to="/babycaretips" className="hover:text-blush-500 transition-colors font-bold text-blush-600">Care Tips</Link></li>
         </ul>
 
         {/* Right Actions */}
@@ -141,6 +142,7 @@ function Navbar() {
             <li><Link to="/shop?category=Toys" onClick={() => setIsMenuOpen(false)}>Toys</Link></li>
             <li><Link to="/shop?category=Nursery" onClick={() => setIsMenuOpen(false)}>Nursery</Link></li>
             <li><Link to="/shop?category=Bath+%26+Care" onClick={() => setIsMenuOpen(false)}>Bath & Care</Link></li>
+            <li><Link to="/babycaretips" className="text-blush-600" onClick={() => setIsMenuOpen(false)}>Baby Care Tips</Link></li>
           </ul>
         </div>
       )}

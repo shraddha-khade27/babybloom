@@ -22,8 +22,7 @@ function Footer() {
                         <ul className="space-y-4">
                             <li><Link to="/" className="hover:text-teal-400 transition-colors">Home</Link></li>
                             <li><Link to="/products" className="hover:text-teal-400 transition-colors">Shop All</Link></li>
-                            <li><Link to="/products" className="hover:text-teal-400 transition-colors">Best Sellers</Link></li>
-                            <li><Link to="/" className="hover:text-teal-400 transition-colors">Special Offers</Link></li>
+                            <li><Link to="/babycaretips" className="hover:text-teal-400 transition-colors">Baby Care Tips</Link></li>
                         </ul>
                     </div>
 

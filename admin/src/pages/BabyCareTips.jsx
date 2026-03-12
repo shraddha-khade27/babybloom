@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../utils/api';
+import API_BASE_URL from '../config';
 
 function BabyCareTips() {
   const [tips, setTips] = useState([]);
@@ -148,7 +149,7 @@ function BabyCareTips() {
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-4">
                           <img 
-                            src={tip.image ? `https://babybloom-backend.onrender.com${tip.image}` : 'https://via.placeholder.com/100'} 
+                            src={tip.image ? `${API_BASE_URL}${tip.image}` : 'https://via.placeholder.com/100'} 
                             alt="" 
                             className="w-10 h-10 rounded-md object-cover border border-slate-100"
                           />

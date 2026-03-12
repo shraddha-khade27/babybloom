@@ -78,7 +78,7 @@ const Babycaretips = () => {
                             >
                                 <div className="relative h-56 overflow-hidden">
                                     <img 
-                                        src={tip.image ? `${API_BASE_URL}${tip.image}` : 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'} 
+                                        src={tip.image ? (tip.image.startsWith('http') ? tip.image : `${API_BASE_URL}${tip.image}`) : 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'} 
                                         alt={tip.title}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
@@ -119,7 +119,7 @@ const Babycaretips = () => {
                         
                         <div className="h-64 sm:h-80 w-full overflow-hidden">
                             <img 
-                                src={expandedTip.image ? `${API_BASE_URL}${expandedTip.image}` : 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'} 
+                                src={expandedTip.image ? (expandedTip.image.startsWith('http') ? expandedTip.image : `${API_BASE_URL}${expandedTip.image}`) : 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'} 
                                 alt={expandedTip.title}
                                 className="w-full h-full object-cover"
                             />

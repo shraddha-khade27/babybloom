@@ -9,6 +9,7 @@ import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import Customers from "./pages/Customers";
 import Payments from "./pages/Payments";
+import BabyCareTips from "./pages/BabyCareTips";
 import AdminLogin from "./pages/AdminLogin";
 
 // Component to protect admin routes
@@ -41,6 +42,7 @@ function App() {
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/customers" element={<Customers />} />
                 <Route path="/payments" element={<Payments />} />
+                <Route path="/baby-care-tips" element={<BabyCareTips />} />
               </Routes>
             </AdminLayout>
           </ProtectedRoute>

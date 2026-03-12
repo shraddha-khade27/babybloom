@@ -17,6 +17,7 @@ const productRoutes = require("./routes/productRoutes")
 const orderRoutes = require("./routes/orderRoutes")
 const paymentRoutes = require("./routes/paymentRoutes")
 const adminRoutes = require("./routes/adminRoutes")
+const babyCareTipsRoutes = require('./routes/babyCareTipsRoutes');
 
 // USE ROUTES
 app.use("/api/users", userRoutes)
@@ -24,6 +25,7 @@ app.use("/api/products", productRoutes)
 app.use("/api/orders", orderRoutes)
 app.use("/api/payment", paymentRoutes)
 app.use("/api/admin", adminRoutes)
+app.use('/api/tips', babyCareTipsRoutes);
 
 // SERVE UPLOADS FOLDER STATICALLY
 const path = require('path')

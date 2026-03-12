@@ -16,6 +16,7 @@ function Sidebar() {
           { name: 'Add Product', path: '/add-product', icon: '➕' },
           { name: 'Orders', path: '/orders', icon: '📦' },
           { name: 'Customers', path: '/customers', icon: '👥' },
+          { name: 'Baby Care Tips', path: '/baby-care-tips', icon: '💡' },
         ].map((item) => {
           const isCurr = location.pathname === item.path || (item.path === '/products' && location.pathname === '/');
           const activeStyle = isCurr
